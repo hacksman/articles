@@ -101,7 +101,7 @@
 
 ==代码示例==：
 
-![code_8.png](https://raw.githubusercontent.com/hacksman/articles/master/python中最常用的日期时间/imgs/code_8.png)
+![code_8.png](https://raw.githubusercontent.com/hacksman/articles/master/python中最常用的日期时间/imgs/code_8.1.png)
 
 
 
