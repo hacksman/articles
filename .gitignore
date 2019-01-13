@@ -1,3 +1,7 @@
 *.plist
 .DS_Store
 *.mindnode
+*.pyc
+*.idea
+*.xml
+/venv
