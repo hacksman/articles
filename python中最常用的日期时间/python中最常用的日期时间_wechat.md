@@ -101,7 +101,7 @@
 
 ==代码示例==：
 
-![code_8.png](https://raw.githubusercontent.com/hacksman/articles/master/python中最常用的日期时间/imgs/code_8.png)
+![code_8.png](https://raw.githubusercontent.com/hacksman/articles/master/python中最常用的日期时间/imgs/code_8.1.png)
 
 
 
@@ -129,12 +129,12 @@ Delta 是三角洲的英文，源自三角洲的形状像三角形，如同大�
 
 # 小结
 
-![pic_2.png](https://raw.githubusercontent.com/hacksman/articles/master/python中最常用的日期时间/imgs/pic_2.png)
+![image-20190113125122465](/Users/zhangfei/growing/articles/python中最常用的日期时间/imgs/pic_2.png)
 
 
 
 1. 在学习的时候对自己不懂得东西，要花时间归纳总结，尤其是那些每次遇到都会卡壳的小问题，虽然每次花时间不多，但积累起来就浪费了大量的时间
-2. 学习的过程中，可以对自己的好奇部分，花一点时间探索，有时候可能会收获意想不到的惊喜，代码示例这次的delta命名。但要注意时间的控制
+2. 索，有时候可能会收获意想不到的惊喜，代码示例这次的delta命名。但要注意时间的控制
 
 
 
