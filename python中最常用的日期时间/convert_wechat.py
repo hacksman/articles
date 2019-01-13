@@ -2,7 +2,6 @@
 # coding:utf-8
 # @Time :1/13/19 11:04
 
-import sys
 import os
 import re
 pwd = os.getcwd()
@@ -26,6 +25,17 @@ github_base_url = "https://raw.githubusercontent.com/hacksman/articles/master/"
 
 with open(md_file, "r", encoding="utf-8") as mf:
     mf_read = mf.read()
+
+    # 先替换图片
+    img_block_regx = re.compile("!\\[[^\\]]+\\]\\([^\\)]+\\)")
+
+    img_list = img_block_regx.findall(mf_read)
+
+    for img_count, per_img in enumerate(img_list):
+
+        mf_read = mf_read.replace(per_img, "![pic_{}.png]({}{}/imgs/pic_{}.png)".format(img_count + 1, github_base_url, md_name, img_count + 1))
+
+    # 再替换代码
     code_block_regx = re.compile("```([\\s\\S]*?)```[\\s]?")
 
     code_list = code_block_regx.findall(mf_read)
@@ -35,9 +45,9 @@ with open(md_file, "r", encoding="utf-8") as mf:
         per_code = "```" + per_code + "```"
 
         mf_read = mf_read.replace(per_code, "![code_{}.png]({}{}/imgs/code_{}.png)".format(code_count + 1, github_base_url, md_name, code_count + 1))
-    print(mf_read)
+
+    new_md_f = mf_read
 
 
-    # new_md_f = mf_read
-
-# print(new_md_f)
+with open("{}_wechat.md".format(md_name), "w", encoding="utf-8") as wechat_md_f:
+    wechat_md_f.write(new_md_f)

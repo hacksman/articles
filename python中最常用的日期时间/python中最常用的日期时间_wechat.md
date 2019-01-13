@@ -25,15 +25,7 @@
 
 ==代码示例==：
 
-```bash
->>> import time
-
->>> t_struct = time.gmtime(1547036431)
-
->>> t_struct
-
-time.struct_time(tm_year=2019, tm_mon=1, tm_mday=9, tm_hour=12, tm_min=20, tm_sec=31, tm_wday=2, tm_yday=9, tm_isdst=0)
-```
+![code_1.png](https://raw.githubusercontent.com/hacksman/articles/master/python中最常用的日期时间/imgs/code_1.png)
 
 
 
@@ -42,12 +34,7 @@ time.struct_time(tm_year=2019, tm_mon=1, tm_mday=9, tm_hour=12, tm_min=20, tm_se
 
 ==代码示例==：
 
-```bash
->>> import time
->>> t = time.strftime("%H:%M")
->>> t
-'20:56'
-```
+![code_2.png](https://raw.githubusercontent.com/hacksman/articles/master/python中最常用的日期时间/imgs/code_2.png)
 
 
 
@@ -55,19 +42,7 @@ time.struct_time(tm_year=2019, tm_mon=1, tm_mday=9, tm_hour=12, tm_min=20, tm_se
 
 ==代码示例==：
 
-```bash
->>> import time
-
->>> t = time.time()
-
->>> t
-
-1547206269.212508
-
->>> t.__class__
-
-<type 'float'>
-```
+![code_3.png](https://raw.githubusercontent.com/hacksman/articles/master/python中最常用的日期时间/imgs/code_3.png)
 
 
 
@@ -85,21 +60,7 @@ time.struct_time(tm_year=2019, tm_mon=1, tm_mday=9, tm_hour=12, tm_min=20, tm_se
 
 ==代码示例==：
 
-```bash
->>> import time
-
->>> localtime = time.localtime(time.time())
-
->>> localtime
-
-time.struct_time(tm_year=2019, tm_mon=1, tm_mday=9, tm_hour=21, tm_min=12, tm_sec=15, tm_wday=2, tm_yday=9, tm_isdst=0)
-
->>> t_format = time.strftime("%Y-%m-%d %H:%M:%S", localtime)
-
->>> t_format
-
-'2019-01-09 21:12:15'
-```
+![code_4.png](https://raw.githubusercontent.com/hacksman/articles/master/python中最常用的日期时间/imgs/code_4.png)
 
 
 
@@ -108,25 +69,7 @@ time.struct_time(tm_year=2019, tm_mon=1, tm_mday=9, tm_hour=21, tm_min=12, tm_se
 
 ==代码示例==：
 
-```bash
->>> import time
-
->>> t_float = time.time()
-
->>> from datetime import datetime
-
->>> t = datetime.fromtimestamp(t_float)
-
->>> t
-
-datetime.datetime(2019, 1, 9, 21, 25, 27, 296692)
-
->>> t_format = t.strftime("%Y-%m-%d %H:%M:%S")
-
->>> t_format
-
-'2019-01-09 21:25:27'
-```
+![code_5.png](https://raw.githubusercontent.com/hacksman/articles/master/python中最常用的日期时间/imgs/code_5.png)
 
 
 
@@ -136,27 +79,7 @@ datetime.datetime(2019, 1, 9, 21, 25, 27, 296692)
 
 ==代码示例==：
 
-```bash
->>>from datetime import datetime
-
->>>t1 = datetime.strptime("2019/01/11 20:26:45", "%Y/%m/%d %H:%M:%S")
-
->>>t2 = datetime.strptime("2019-01-11 21:26:45", "%Y-%m-%d %H:%M:%S")
-
->>>t_delta = t2 - t1
-
->>>type(t1)
-
-<type 'datetime.datetime'>
-
->>>t_delta
-
-datetime.timedelta(0, 3600)
-
->>>t_delta.seconds
-
-3600
-```
+![code_6.png](https://raw.githubusercontent.com/hacksman/articles/master/python中最常用的日期时间/imgs/code_6.png)
 
 
 
@@ -164,23 +87,7 @@ datetime.timedelta(0, 3600)
 
 ==代码示例==：
 
-```bash
->>> import datetime
-
->>> t_now = datetime.datetime.now()
-
->>> t_now
-
-datetime.datetime(2019, 1, 11, 20, 39, 42, 15616)
-
->>> delta = datetime.timedelta(days=7)
-
->>> t_future = t_now + delta 
-
-t_future
-
->>> datetime.datetime(2019, 1, 18, 20, 39, 42, 15616)
-```
+![code_7.png](https://raw.githubusercontent.com/hacksman/articles/master/python中最常用的日期时间/imgs/code_7.png)
 
 
 
@@ -194,43 +101,7 @@ t_future
 
 ==代码示例==：
 
-```bash
->>> import arrow
-
->>> now = arrow.utcnow().to("local")
-
->>> now
-
-<Arrow [2019-01-11T20:53:40.411946+08:00]>
-
->>> now.floor("day")
-
-<Arrow [2019-01-11T00:00:00+08:00]>
-
->>> now.ceil("day")
-
-<Arrow [2019-01-11T23:59:59.999999+08:00]>
-
->>> now.floor("month")
-
-<Arrow [2019-01-01T00:00:00+08:00]>
-
->>> now.floor("year")
-
-<Arrow [2019-01-01T00:00:00+08:00]>
-
->>> now.shift(days=-3)
-
-<Arrow [2019-01-08T20:53:40.411946+08:00]>
-
->>> now.shift(days=-3).strftime("%Y-%m-%d %H:%M:%S")
-
-'2019-01-08 20:53:40'
-
->>> now.shift(months=-3).strftime("%Y-%m-%d %H:%M:%S")
-
-'2018-10-11 20:53:40'
-```
+![code_8.png](https://raw.githubusercontent.com/hacksman/articles/master/python中最常用的日期时间/imgs/code_8.png)
 
 
 
@@ -240,7 +111,7 @@ t_future
 
 
 
-![python_datetime_9.png](/Users/zhangfei/growing/articles/python中最常用的日期时间/imgs/pic_1.png)
+![pic_1.png](https://raw.githubusercontent.com/hacksman/articles/master/python中最常用的日期时间/imgs/pic_1.png)
 
 
 
@@ -256,7 +127,7 @@ Delta 是三角洲的英文，源自三角洲的形状像三角形，如同大�
 
 # 小结
 
-![pic2](/Users/zhangfei/growing/articles/python中最常用的日期时间/imgs/pic2.png)
+![pic_2.png](https://raw.githubusercontent.com/hacksman/articles/master/python中最常用的日期时间/imgs/pic_2.png)
 
 1. 在学习的时候对自己不懂得东西，要花时间归纳总结，尤其是那些每次遇到都会卡壳的小问题，虽然每次花时间不多，但积累起来就浪费了大量的时间
 2. 学习的过程中，可以对自己的好奇部分，花一点时间探索，有时候可能会收获意想不到的惊喜，代码示例这次的delta命名。但要注意时间的控制
