@@ -1,6 +1,6 @@
 #!/usr/bin/env python 
 # coding:utf-8
-# @Time :1/13/19 11:04
+# @Time :2/17/19 10:05
 
 import os
 import re
@@ -36,22 +36,7 @@ with open(md_file, "r", encoding="utf-8") as mf:
         image_url = per_img.split("/")[-1].replace(")", "")
         mf_read = mf_read.replace(per_img, "![pic_{}.png]({}{}/imgs/{})".format(img_count + 1, github_base_url, md_name, image_url))
 
-    # 再替换代码
-    code_block_regx = re.compile("```([\\s\\S]*?)```[\\s]?")
-
-    code_list = code_block_regx.findall(mf_read)
-
-    for code_count, per_code in enumerate(code_list):
-
-        per_code = "```" + per_code + "```"
-
-        if code_count == 0:
-            mf_read = mf_read.replace(per_code, "![carbon.png]({}{}/imgs/carbon.png)".format(github_base_url, md_name))
-        else:
-            mf_read = mf_read.replace(per_code, "![carbon_{}.png]({}{}/imgs/carbon ({}).png)".format(code_count, github_base_url, md_name, code_count))
-
     new_md_f = mf_read
 
-
-with open("{}_wechat.md".format(md_name), "w", encoding="utf-8") as wechat_md_f:
+with open("{}_juejin.md".format(md_name), "w", encoding="utf-8") as wechat_md_f:
     wechat_md_f.write(new_md_f)
