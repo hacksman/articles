@@ -42,7 +42,9 @@
 
 
 
-TCP和UDP的特点总结
+TCP 和 UDP 的特点总结
+
+
 
 ![pic_1](/Users/zhangfei/growing/articles/10分钟理解TCP、UDP 和端口号/imgs/pic_1.png)
 
@@ -116,13 +118,13 @@ TCP和UDP的特点总结
 
 
 
-2.  注册端口（Registered Ports）
+2. Registered Ports（即注册端口）
 
 它是不可以动态调整的端口段，这些端口没有明确定义服务哪些特定的对象。不同的程序可以根据自己的需要自己定义，注册端口号的范围是：1024-49151
 
 
 
-3. 动态、私有或临时端口号（Dynamic, private or ephemeral ports）
+3. Dynamic, private or ephemeral ports（即动态、私有或临时端口号）
 
 顾名思义，这些端口号是不可以注册的，这一段的端口被用作一些私人的或者定制化的服务，当然也可以用来做动态端口服务，这一段的范围是：49152–65535
 
