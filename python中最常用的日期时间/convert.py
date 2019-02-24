@@ -36,6 +36,11 @@ with open(md_file, "r", encoding="utf-8") as mf:
         image_url = per_img.split("/")[-1].replace(")", "")
         mf_read = mf_read.replace(per_img, "![pic_{}.png]({}{}/imgs/{})".format(img_count + 1, github_base_url, md_name, image_url))
 
+
+
+with open("{}_juejin.md".format(md_name), "w", encoding="utf-8") as juejin_md_f:
+    juejin_md_f.write(mf_read)
+
     # 再替换代码
     code_block_regx = re.compile("```([\\s\\S]*?)```[\\s]?")
 
@@ -51,6 +56,11 @@ with open(md_file, "r", encoding="utf-8") as mf:
             mf_read = mf_read.replace(per_code, "![carbon_{}.png]({}{}/imgs/carbon ({}).png)".format(code_count, github_base_url, md_name, code_count))
 
     new_md_f = mf_read
+
+with open("{}_juejin.md".format(md_name), "a", encoding="utf-8") as juejin_md_f_a:
+    juejin_md_f_a.write("\n")
+    juejin_md_f_a.write("\n")
+    juejin_md_f_a.write("![tail_qrcode.jpg](https://raw.githubusercontent.com/hacksman/articles/master/imgs/tail_qrcode.jpg)")
 
 
 with open("{}_wechat.md".format(md_name), "w", encoding="utf-8") as wechat_md_f:
