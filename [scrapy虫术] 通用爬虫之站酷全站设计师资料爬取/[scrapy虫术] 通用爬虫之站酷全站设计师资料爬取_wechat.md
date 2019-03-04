@@ -43,39 +43,7 @@ https://juejin.im/post/5b026d53518825426b277dd5
 大家可以看一下大才哥的教程一步步实现，在此基础上，我增加了一个自动换请求头的功能和换代理的功能
 
 #### 1. 随机请求头:
-```
-import random
-from scrapy import signals
-from scrapy.downloadermiddlewares.useragent import UserAgentMiddleware
-class RandomUserAgentMiddleware(UserAgentMiddleware):
-"""This middleware allows spiders to override the useragent"""
-
-def init(self, settings, useragent='Scrapy'):
-    super(RandomUserAgentMiddleware, self).init()
-    self.useragent = useragent
-    useragentfile = settings.get('USERAGENTLIST')
-    if not useragentfile:
-        ua = settings.get('USERAGENT', useragent)
-        self.useragentlist = ua
-    else:
-        with open(useragentfile, 'r') as f:
-            self.useragentlist = i.strip() for i in f.readlines()
-
-@classmethod
-def fromcrawler(cls, crawler):
-    o = cls(crawler.settings)
-    crawler.signals.connect(o.spideropened, signal=signals.spideropened)
-    return o
-
-def spideropened(self, spider):
-    self.useragent = getattr(spider, 'useragent', self.useragent)
-
-def processrequest(self, request, spider):
-    useragent = random.choice(self.useragentlist)
-    if self.useragent:
-        request.headers.setdefault(b'User-Agent', useragent)
-
-```
+![carbon.png](https://raw.githubusercontent.com/hacksman/articles/master/[scrapy虫术] 通用爬虫之站酷全站设计师资料爬取/imgs/carbon.png)
 核心思路就是在settings内得到的user-agent的文件路径之地，之后再每次请求的时候，随机再其中抽取一个，如果没有拿到的话，就默认选择配置中的默认请求头
 
 #### 2. 随机代理ip
@@ -85,31 +53,7 @@ def processrequest(self, request, spider):
 
 对应站酷网，核心的思路在上面的思路中已经结束，代码注释中有每一步的追踪步骤，不在赘述
 
-```
-
-'zcool': (
-    # 追踪下一页
-    Rule(LinkExtractor(restrictxpaths='//a@class="laypagenext"]')),
-    # 提取如 https://www.zcool.com.cn/u/15472001 样式的页面
-    Rule(LinkExtractor(allow='.www.zcool.com.cn\/u\/\d+$')),
-    # 追踪 https://www.zcool.com.cn/designer 页面设计师主页的链接
-    Rule(LinkExtractor(restrictxpaths='//a@z-st="usercontentcard1username"]')),
-    # 追踪 https://www.zcool.com.cn/designer 筛选 | 推荐设计师 栏目的分页
-    Rule(LinkExtractor(restrictxpaths='//astarts-with(@z-st, "desingerfilterrecommend")]')),
-    # 追踪 https://www.zcool.com.cn/designer 筛选 | 不限职业 栏目的分页
-    Rule(LinkExtractor(restrictxpaths='//astarts-with(@z-st, "desingerfilterprofession")]')),
-    # 本来准备使用访客和留言来追踪的，后来发现页面是动态加载的，提取收到该信息，遂弃用
-    # Rule(LinkExtractor(restrictxpaths='//a@class="usernick"')),
-    # Rule(LinkExtractor(restrictxpaths='//a@class="visitor-name"')),
-    # 追踪 粉丝页面
-    Rule(LinkExtractor(allow='.?fans.')),
-    # 追踪 关注页面
-    Rule(LinkExtractor(allow='.?follow.')),
-    # 追踪 设计师资料页，并回调给parseitem函数处理
-    Rule(LinkExtractor(allow='.?profile.'), callback='parseitem'),
-)
-
-```
+![carbon_1.png](https://raw.githubusercontent.com/hacksman/articles/master/[scrapy虫术] 通用爬虫之站酷全站设计师资料爬取/imgs/carbon (1).png)
 
 至此，一个通用的母体爬虫便制作完毕，之后如果用来爬反爬虫不是特别强的网站，一个爬虫也不过就是分析网站和做页面解析费点时间，做好这个之后，一个简单的页面爬虫，我初略估计不会超过半小时即可
 

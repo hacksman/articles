@@ -130,3 +130,6 @@ JSONView是直接在网页端返回的数据结果是Json，但多数时候我�
 
 它能来干嘛？见名思意，就是一个屏幕悬浮工具，然而我最近才发现它特别重要，尤其我们需要分析参数时，经常需要在几个界面来回切换，这个时候有一些参数，我们需要比较他们的差异，这个时候，你就可以通过它先悬浮着，不用在几个界面中来切换。非常方便。再送你一个隐藏玩法，比如上面这样
 
+
+
+![tail_qrcode.jpg](https://raw.githubusercontent.com/hacksman/articles/master/imgs/tail_qrcode.jpg)

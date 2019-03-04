@@ -50,13 +50,13 @@ PS : 更多 GraphQL 的介绍可以看文末的参考资料
 
 task表
 
-![code_0.png](https://raw.githubusercontent.com/hacksman/articles/master/GraphQL搭配MongoDB入门项目实战/imgs/carbon (0).png)
+![carbon.png](https://raw.githubusercontent.com/hacksman/articles/master/GraphQL搭配MongoDB入门项目实战/imgs/carbon.png)
 
 
 
 user表
 
-![code_1.png](https://raw.githubusercontent.com/hacksman/articles/master/GraphQL搭配MongoDB入门项目实战/imgs/carbon (1).png)
+![carbon_1.png](https://raw.githubusercontent.com/hacksman/articles/master/GraphQL搭配MongoDB入门项目实战/imgs/carbon (1).png)
 
 
 
@@ -68,7 +68,7 @@ user表
 
 
 
-![code_2.png](https://raw.githubusercontent.com/hacksman/articles/master/GraphQL搭配MongoDB入门项目实战/imgs/carbon (2).png)
+![carbon_2.png](https://raw.githubusercontent.com/hacksman/articles/master/GraphQL搭配MongoDB入门项目实战/imgs/carbon (2).png)
 
 ![pic_1.png](https://raw.githubusercontent.com/hacksman/articles/master/GraphQL搭配MongoDB入门项目实战/imgs/pic_1.png)
 
@@ -97,7 +97,7 @@ user表
 
 ##### base.py
 
-![code_3.png](https://raw.githubusercontent.com/hacksman/articles/master/GraphQL搭配MongoDB入门项目实战/imgs/carbon (3).png)
+![carbon_3.png](https://raw.githubusercontent.com/hacksman/articles/master/GraphQL搭配MongoDB入门项目实战/imgs/carbon (3).png)
 
 只需要通过调用 mongoengine 的 connect 指定对应的数据库链接信息和数据库即可，后面直接引入至Flask模块会自动识别连接
 
@@ -105,7 +105,7 @@ user表
 
 ##### model_user.py
 
-![code_4.png](https://raw.githubusercontent.com/hacksman/articles/master/GraphQL搭配MongoDB入门项目实战/imgs/carbon (4).png)
+![carbon_4.png](https://raw.githubusercontent.com/hacksman/articles/master/GraphQL搭配MongoDB入门项目实战/imgs/carbon (4).png)
 
 所要定义的数据文档都通过 mongoengine 的 Document 继承，它可以将对应字段转换成类属性，方便后期对数据进行各种操作，meta 字段指定对应的你需要链接的是哪张 mongo 表
 
@@ -113,7 +113,7 @@ user表
 
 ##### model_task.py
 
-![code_5.png](https://raw.githubusercontent.com/hacksman/articles/master/GraphQL搭配MongoDB入门项目实战/imgs/carbon (5).png)
+![carbon_5.png](https://raw.githubusercontent.com/hacksman/articles/master/GraphQL搭配MongoDB入门项目实战/imgs/carbon (5).png)
 
 其中 required 表示这个字段是必须字段，default 可以设置该字段的默认值。ReferenceField 可以指定和哪个模型相关联，这里指定的是 ModelUser 字段，关联默认为对应 mongo 表中的 _id 字段
 
@@ -127,13 +127,13 @@ user表
 
 ##### schema_task.py
 
-![code_6.png](https://raw.githubusercontent.com/hacksman/articles/master/GraphQL搭配MongoDB入门项目实战/imgs/carbon (6).png)
+![carbon_6.png](https://raw.githubusercontent.com/hacksman/articles/master/GraphQL搭配MongoDB入门项目实战/imgs/carbon (6).png)
 
 
 
 ##### schema_user.py
 
-![code_7.png](https://raw.githubusercontent.com/hacksman/articles/master/GraphQL搭配MongoDB入门项目实战/imgs/carbon (7).png)
+![carbon_7.png](https://raw.githubusercontent.com/hacksman/articles/master/GraphQL搭配MongoDB入门项目实战/imgs/carbon (7).png)
 
 
 
@@ -142,7 +142,7 @@ user表
 - tasks: 查询所有任务信息，返回一个list
 - users: 查询所有用户信息，返回一个list
 
-![code_8.png](https://raw.githubusercontent.com/hacksman/articles/master/GraphQL搭配MongoDB入门项目实战/imgs/carbon (8).png)
+![carbon_8.png](https://raw.githubusercontent.com/hacksman/articles/master/GraphQL搭配MongoDB入门项目实战/imgs/carbon (8).png)
 
 
 
@@ -152,7 +152,7 @@ user表
 
 
 
-![code_9.png](https://raw.githubusercontent.com/hacksman/articles/master/GraphQL搭配MongoDB入门项目实战/imgs/carbon (9).png)
+![carbon_9.png](https://raw.githubusercontent.com/hacksman/articles/master/GraphQL搭配MongoDB入门项目实战/imgs/carbon (9).png)
 
 
 
@@ -178,15 +178,13 @@ GraphQL 官方将更新创建操作，全部整合在 mutation 下，它包含�
 
 ##### schema_task.py
 
-![code_10.png](https://raw.githubusercontent.com/hacksman/articles/master/GraphQL搭配MongoDB入门项目实战/imgs/carbon (10).png)
+![carbon_10.png](https://raw.githubusercontent.com/hacksman/articles/master/GraphQL搭配MongoDB入门项目实战/imgs/carbon (10).png)
 
 
 
 ##### schema_user.py
 
-![code_11.png](https://raw.githubusercontent.com/hacksman/articles/master/GraphQL搭配MongoDB入门项目实战/imgs/carbon (11).png)
-
-
+![carbon_11.png](https://raw.githubusercontent.com/hacksman/articles/master/GraphQL搭配MongoDB入门项目实战/imgs/carbon (11).png)
 
 一看代码便知，我们将需要添加的信息，通过input传入进来，然后将对应的参数进行映射即可。我们再通过实例看下创建数据的效果
 

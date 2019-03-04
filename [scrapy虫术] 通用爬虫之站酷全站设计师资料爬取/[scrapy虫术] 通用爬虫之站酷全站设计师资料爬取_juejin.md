@@ -115,3 +115,6 @@ def processrequest(self, request, spider):
 
 现在我的爬虫还在提取中，目前单机采集速度大概在日采集5-6万的样子，如果要提速可以自己在配置中增加并发
 
+
+
+![tail_qrcode.jpg](https://raw.githubusercontent.com/hacksman/articles/master/imgs/tail_qrcode.jpg)
